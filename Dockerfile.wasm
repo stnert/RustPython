@@ -25,7 +25,7 @@ COPY wasm/demo .
 RUN npm install && npm run dist -- --env.noWasmPack --env.rustpythonPkg=rustpython_wasm
 
 
-FROM nginx:alpine
+FROM nginx:1.25.3-alpine3.18
 
 COPY --from=node /rustpython-demo/dist /usr/share/nginx/html
 # Add the WASM mime type
